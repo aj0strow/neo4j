@@ -1,0 +1,11 @@
+{
+  "name": "neo4j",
+  "version": "0.0.0",
+  "main": "index",
+  "devDependencies": {
+    "chai": "~1.9.0",
+    "chai-as-promised": "~4.1.1",
+    "mocha": "~1.17.1",
+    "mocha-as-promised": "~2.0.0"
+  }
+}
