@@ -32,13 +32,13 @@ Relationships are used for connecting exactly two nodes. Relationships are alway
 
 Fun fact: a node can have a relationship with itself. 
 
-Relationships have a *type* providing meaning. Relationships are usually upper snake case, such as `FOLLOWS` or `BLOCKS`. You can use types with spaces if you query with backticks. 
+Relationships have a *type* providing meaning. Types are usually upper snake case, such as `FOLLOWS` or `BLOCKS`. If you must, you can use types with spaces if you query with backticks. 
 
 #### Properties
 
 Properties are key-value pairs. The key is a string. The value is a non-null primitive or typed array of primities. Once more: *the value can't be null*. Instead exclude the key all together. 
 
-If the value is a typed array, it cannot be initialized as an empty array. This will actually cause errors (oh java). 
+**Warning**: if the value is a typed array, it can't be initialized as an empty array. This will actually cause errors, cause you can't infer type from a json array (oh java). 
 
 #### Path
 
