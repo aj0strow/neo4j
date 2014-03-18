@@ -1,6 +1,23 @@
 describe('label', function () {
   var Book = db.label('Book', { primaryKey: 'isbn' });
 
+  describe('#_count', function () {
+    it('should be the correct query', function () {
+      var expected = 'MATCH (book:Book)\nRETURN count(book)';
+      assert.equal(Book._count(), expected);
+    });
+  });
+
+  describe('#count', function () {
+    before(function () {
+      return db.clear();
+    });
+
+    it('should get count', function () {
+      return assert.becomes(Book.count(), 0);
+    });
+  });
+
   describe('#_find', function () {
     it('should be the correct query', function () {
       var expected = 'MATCH (book:Book { isbn: { primaryKey } })\nRETURN book';
