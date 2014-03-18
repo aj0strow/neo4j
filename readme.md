@@ -29,6 +29,14 @@ var findUser = graphdb.cypher('MATCH (user:User) WHERE user.id = { id } RETURN u
 var promise = findUser({ id: 5 });
 ```
 
+You can find and save nodes scoped to a label. It uses `MERGE` so as to respect unique primary keys. 
+
+```javascript
+var User = graphdb.label('User', { primaryKey: 'id' });
+User.merge({ id: 1, name: 'AJ' })
+User.find(1)
+```
+
 ### Notes
 
 I read the manual and took notes available in `doc/notes.md`. 

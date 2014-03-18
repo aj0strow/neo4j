@@ -189,6 +189,15 @@ RETURN id(user)
 Get types of relationships between two users.
 
 ```
-MATCH (user:User, { id: 5 })-[rel]-(other:User, { id: 10 })
+MATCH (user:User { id: 5 })-[rel]-(other:User, { id: 10 })
 RETURN type(rel)
+```
+
+Timestamps.
+
+```
+MATCH (post:Post { id: 923872 })
+SET post.text = 'new text'
+AND post.updated = timestamp()
+RETURN post
 ```
